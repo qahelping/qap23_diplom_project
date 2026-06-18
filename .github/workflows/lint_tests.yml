@@ -23,3 +23,6 @@ jobs:
         ruff check .
     - name: Run pytest
       run: pytest unit_tests
+    - name: Run Acceptance tests
+      run: |
+        pytest tests -vv
