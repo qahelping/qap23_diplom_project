@@ -1,9 +1,9 @@
 import json
 
 import requests
-from faker import Faker
 
 from core.get_env import GORES_TOKEN
+from test_data.get_random_body import get_random_user
 from test_data.users_list import USERS_LIST, get_user_by_id
 
 
@@ -27,7 +27,6 @@ def test_get_user_by_id():
 
 
 def test_create_user():
-    fake = Faker()
     headers = {
         "Authorization": f"Bearer {GORES_TOKEN}",
         "Accept": "application/json",
@@ -36,12 +35,7 @@ def test_create_user():
 
     url = "https://gorest.co.in/public/v2/users"
 
-    body = {
-        "name": fake.name(),
-        "email": fake.email(),
-        "gender": "male" if fake.passport_gender() == "M" else "female",
-        "status": "active",
-    }
+    body = get_random_user()
     response = requests.post(url, headers=headers, data=json.dumps(body))
     response_json = response.json()
     assert response.status_code == 201  # noqa: PLR2004
