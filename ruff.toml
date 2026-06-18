@@ -20,7 +20,6 @@ select = [
     "SIM",
     "RET",
     "ARG",
-    "PTH",
     "PL",
     "RUF",
     "E501",
