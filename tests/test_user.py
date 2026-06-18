@@ -1,10 +1,18 @@
+
+
+
+
+
+
+from core.get_env import GORES_TOKEN
+from test_data.users_list import USERS_LIST, get_user_by_id
+
+
+
 import json
 
 import requests
 from faker import Faker
-
-from core.get_env import GORES_TOKEN
-from test_data.users_list import USERS_LIST, get_user_by_id
 
 
 def test_get_user():
@@ -54,7 +62,7 @@ def test_create_user():
     user_id = response_json['id']
     url = f'https://gorest.co.in/public/v2/users/{user_id}'
     response = requests.get(url, headers=headers)
-    
+
     response_json = response.json()
     assert response.status_code == 200
 
