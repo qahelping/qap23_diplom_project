@@ -78,4 +78,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run acceptance tests
-        run: pytest tests -vv
+        run: pytest tests -s
