@@ -1,1 +1,1 @@
-BASE_URL = 'gorest.co.in'
+BASE_URL = "gorest.co.in"
