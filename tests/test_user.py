@@ -43,10 +43,8 @@ def test_create_user():
         "gender": 'male' if fake.passport_gender() == 'M' else 'female',
         "status": 'active'
     }
-    print(body)
     response = requests.post(url, headers=headers, data=json.dumps(body))
     response_json = response.json()
-    print(response_json)
     assert response.status_code == 201
     assert response_json['name'] == body['name']
     assert response_json['email'] == body['email']
@@ -56,7 +54,7 @@ def test_create_user():
     user_id = response_json['id']
     url = f'https://gorest.co.in/public/v2/users/{user_id}'
     response = requests.get(url, headers=headers)
-    print(url)
+    
     response_json = response.json()
     assert response.status_code == 200
 
