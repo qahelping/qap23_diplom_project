@@ -11,7 +11,8 @@ from test_data.get_random_body import get_random_user
 from test_data.users_list import USERS_LIST, get_user_by_id
 
 
-@allure.suite("User")
+@allure.suite("API")
+@allure.feature("User")
 class TestUser:
     @pytest.mark.user_1
     @allure.title("Get user")
